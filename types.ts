@@ -1,11 +1,11 @@
 import React from 'react';
 
 export enum Category {
-  IT = 'Information Facilities',
-  IA = 'Informatics Application',
-  BA = 'Building Automation',
-  SA = 'Security & Safety',
-  EE = 'Electronic Equipment Room'
+  IT = '信息设施系统',
+  IA = '信息化应用系统',
+  BA = '建筑设备管理系统',
+  SA = '公共安全系统',
+  EE = '机房工程'
 }
 
 export interface Standard {

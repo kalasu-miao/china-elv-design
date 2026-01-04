@@ -9,7 +9,7 @@ const AIAssistant: React.FC = () => {
     {
       id: 'welcome',
       role: 'model',
-      text: 'Hello. I am your Digital Architecture Assistant. Ask me about GB standards, common design pitfalls, or system architecture logic.',
+      text: '您好。我是您的数字架构助手。请向我询问GB标准、常见设计陷阱或系统架构逻辑。',
       timestamp: new Date()
     }
   ]);
@@ -63,7 +63,7 @@ const AIAssistant: React.FC = () => {
         className={`fixed bottom-6 right-6 p-4 rounded-full shadow-lg bg-brand-blue text-white hover:bg-blue-800 transition-all z-40 ${
           isOpen ? 'hidden' : 'flex'
         }`}
-        aria-label="Open AI Assistant"
+        aria-label="打开智能助手"
       >
         <MessageCircle size={28} />
       </button>
@@ -78,8 +78,8 @@ const AIAssistant: React.FC = () => {
                 <Bot size={20} />
               </div>
               <div>
-                <h3 className="font-semibold text-sm">Expert Assistant</h3>
-                <p className="text-[10px] text-blue-100 opacity-80">Powered by Gemini 3.0</p>
+                <h3 className="font-semibold text-sm">专家助手</h3>
+                <p className="text-[10px] text-blue-100 opacity-80">基于 Gemini 3.0</p>
               </div>
             </div>
             <button 
@@ -114,7 +114,7 @@ const AIAssistant: React.FC = () => {
               <div className="flex justify-start">
                 <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 flex items-center gap-2">
                   <Loader2 className="animate-spin text-brand-blue" size={16} />
-                  <span className="text-xs text-slate-400">Thinking...</span>
+                  <span className="text-xs text-slate-400">思考中...</span>
                 </div>
               </div>
             )}
@@ -129,7 +129,7 @@ const AIAssistant: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask about standards, specs..."
+                placeholder="询问关于标准、规范..."
                 className="flex-1 bg-slate-50 border border-slate-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all"
               />
               <button

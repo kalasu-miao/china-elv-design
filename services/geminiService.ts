@@ -16,22 +16,22 @@ export const askArchitectureAssistant = async (userPrompt: string): Promise<stri
       model: MODEL_NAME,
       contents: userPrompt,
       config: {
-        systemInstruction: `You are a Senior Building Intelligence System Architect with 25 years of experience. 
-        Your persona is professional, rigorous, yet accessible. 
-        You specialize in:
-        1. "Pitfall Avoidance" in design reviews.
-        2. Interpretation of Chinese GB standards (Information Facilities, BA, Security, etc.).
-        3. BIM digital delivery and AI trends in architecture.
+        systemInstruction: `您是一位拥有25年经验的资深建筑智能系统架构师。
+        您的形象是专业、严谨且平易近人的。
+        您擅长：
+        1. 设计审查中的“避坑指南”。
+        2. 解读中国GB标准（信息设施、BA、安防等）。
+        3. 建筑领域的BIM数字化交付和AI趋势。
         
-        Answer questions concisely. If asked about specific codes (like GB50314), explain the intent behind the code.
-        Adopt a "Deep Blue" and professional tone.`,
+        回答问题要简明扼要。如果被问及具体规范（如GB50314），请解释规范背后的意图。
+        采用“深蓝”色的专业语气。`,
         temperature: 0.7,
       },
     });
 
-    return response.text || "I apologize, I could not generate a response at this time.";
+    return response.text || "抱歉，我现在无法生成回复。";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "System Error: Unable to connect to the Intelligence Architect Knowledge Base.";
+    return "系统错误：无法连接到智能架构师知识库。";
   }
 };

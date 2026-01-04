@@ -17,8 +17,8 @@ const Standards: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-10">
-        <h1 className="text-3xl font-bold text-slate-900">Standards & Specifications</h1>
-        <p className="mt-2 text-slate-600">The authoritative library with expert annotations.</p>
+        <h1 className="text-3xl font-bold text-slate-900">规范与标准</h1>
+        <p className="mt-2 text-slate-600">带有专家批注的权威文库。</p>
       </div>
 
       {/* Controls */}
@@ -28,7 +28,7 @@ const Standards: React.FC = () => {
             onClick={() => setFilter('All')}
             className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition ${filter === 'All' ? 'bg-brand-blue text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
           >
-            All Systems
+            全部系统
           </button>
           {Object.values(Category).map(cat => (
             <button
@@ -44,7 +44,7 @@ const Standards: React.FC = () => {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 h-4 w-4" />
           <input 
             type="text" 
-            placeholder="Search by code or title..." 
+            placeholder="按规范号或标题搜索..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue"
@@ -74,13 +74,13 @@ const Standards: React.FC = () => {
             </div>
 
             <button className="w-full py-2 flex items-center justify-center gap-2 border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 transition mt-auto">
-              <Download size={16} /> Download PDF
+              <Download size={16} /> 下载 PDF
             </button>
           </div>
         ))}
         {filteredStandards.length === 0 && (
           <div className="col-span-full text-center py-20 text-slate-400">
-            No standards found matching your criteria.
+            未找到符合您条件的标准。
           </div>
         )}
       </div>

@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
               <Hexagon className="h-8 w-8 text-brand-blue fill-current opacity-90 group-hover:rotate-90 transition-transform duration-500" />
               <div className="flex flex-col">
                 <span className="font-bold text-xl text-slate-900 tracking-tight">ArchIntelli</span>
-                <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">System Architect</span>
+                <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">系统架构师</span>
               </div>
             </NavLink>
           </div>
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
               </NavLink>
             ))}
             <button className="bg-brand-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 transition-colors shadow-sm">
-              Member Login
+              会员登录
             </button>
           </div>
 

@@ -3,83 +3,83 @@ import { Book, Eye, Box, TrendingUp, Coffee, Layers } from 'lucide-react';
 import { Category, Standard, ReviewCase, NavItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Standards Library', path: '/standards', icon: <Book size={18} /> },
-  { label: 'Design Review', path: '/review', icon: <Eye size={18} /> },
-  { label: 'BIM Practice', path: '/bim', icon: <Box size={18} /> },
-  { label: 'Digital Trends', path: '/trends', icon: <TrendingUp size={18} /> },
-  { label: 'Industry Talk', path: '/talks', icon: <Coffee size={18} /> },
+  { label: '规范标准库', path: '/standards', icon: <Book size={18} /> },
+  { label: '审图视界', path: '/review', icon: <Eye size={18} /> },
+  { label: 'BIM实战', path: '/bim', icon: <Box size={18} /> },
+  { label: '数字趋势', path: '/trends', icon: <TrendingUp size={18} /> },
+  { label: '行业杂谈', path: '/talks', icon: <Coffee size={18} /> },
 ];
 
 export const MOCK_STANDARDS: Standard[] = [
   {
     id: '1',
     code: 'GB 50314-2015',
-    title: 'Standard for Design of Intelligent Building',
+    title: '智能建筑设计标准',
     category: Category.IA,
     year: '2015',
-    expertTip: 'The "Bible" of intelligence design. Focus on Table A.0.1 for configuration grades; do not over-design for Class B office buildings.'
+    expertTip: '智能设计的“圣经”。关注表A.0.1的配置分级；不要为乙级办公楼过度设计。'
   },
   {
     id: '2',
     code: 'GB 50311-2016',
-    title: 'Code for Design of Generic Cabling System',
+    title: '综合布线系统设计规范',
     category: Category.IT,
     year: '2016',
-    expertTip: 'Crucial: Pay attention to the separation distance between power and data cables in the shaft to avoid electromagnetic interference.'
+    expertTip: '关键点：注意弱电井内电源线与数据线之间的分隔距离，避免电磁干扰。'
   },
   {
     id: '3',
     code: 'GB 50348-2018',
-    title: 'Safety Standard for Security Engineering',
+    title: '安全防范工程技术标准',
     category: Category.SA,
     year: '2018',
-    expertTip: 'The "Perimeter Protection" definition has evolved. Ensure your video monitoring blind spots analysis is documented.'
+    expertTip: '“周界防护”定义已演变。确保您的视频监控盲区分析已有文档记录。'
   },
   {
     id: '4',
     code: 'GB 50016-2014',
-    title: 'Code for Fire Protection Design (Intelligence Chapter)',
+    title: '建筑设计防火规范（智能化章节）',
     category: Category.BA,
-    year: '2018 Revision',
-    expertTip: 'Fire linkage logic is the #1 failure point in acceptance. Verify the "force cut" logic for non-fire power.'
+    year: '2018 修订版',
+    expertTip: '消防联动逻辑是验收中的头号故障点。验证非消防电源的“强切”逻辑。'
   },
   {
     id: '5',
     code: 'GB 50174-2017',
-    title: 'Code for Design of Data Centers',
+    title: '数据中心设计规范',
     category: Category.EE,
     year: '2017',
-    expertTip: 'For Class A standard server rooms, dual-path power supply is mandatory, not optional. Watch the UPS battery load calculations.'
+    expertTip: '对于A级标准机房，双路供电是强制性的，而非可选。注意UPS电池负荷计算。'
   }
 ];
 
 export const TOP_ERRORS: ReviewCase[] = [
   {
     id: 'e1',
-    title: 'Weak Current Shaft Sizing',
+    title: '弱电井尺寸不足',
     type: 'Common Error',
-    description: 'Architects often reserve insufficient depth (less than 600mm) for maintenance access in weak current shafts.',
+    description: '建筑师通常为弱电井维护通道预留的深度不足（小于600mm）。',
     frequency: 92
   },
   {
     id: 'e2',
-    title: 'Camera Blind Spots',
+    title: '摄像头盲区',
     type: 'Common Error',
-    description: 'Failure to account for pillar obstruction in basement parking monitoring design.',
+    description: '未能考虑到地下停车场监控设计中柱子的遮挡。',
     frequency: 85
   },
   {
     id: 'e3',
-    title: 'DDC Panel Location',
+    title: 'DDC箱位置不当',
     type: 'Common Error',
-    description: 'Placing BA DDC panels inside AHU rooms with high humidity/vibration instead of outside the door.',
+    description: '将BA DDC箱放置在湿度/振动大的AHU机房内，而不是门外。',
     frequency: 78
   },
   {
     id: 'e4',
-    title: 'Wi-Fi Coverage in Stairwells',
+    title: '楼梯间Wi-Fi覆盖',
     type: 'Controversy',
-    description: 'Whether to cover fire escape stairwells with wireless APs for mobile inspection terminals.',
+    description: '是否在消防疏散楼梯间覆盖无线AP以供移动巡检终端使用。',
     frequency: 45
   }
 ];

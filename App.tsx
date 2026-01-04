@@ -13,7 +13,7 @@ const PlaceholderPage = ({ title }: { title: string }) => (
   <div className="flex items-center justify-center min-h-[60vh] bg-slate-50">
     <div className="text-center p-8">
       <h2 className="text-2xl font-bold text-slate-400 mb-2">{title}</h2>
-      <p className="text-slate-500">Content coming soon to the Architect's platform.</p>
+      <p className="text-slate-500">内容即将上线至架构师平台。</p>
     </div>
   </div>
 );
@@ -29,8 +29,8 @@ const App: React.FC = () => {
             <Route path="/standards" element={<Standards />} />
             <Route path="/review" element={<ReviewVision />} />
             <Route path="/bim" element={<BIM />} />
-            <Route path="/trends" element={<PlaceholderPage title="Digital Trends & AI" />} />
-            <Route path="/talks" element={<PlaceholderPage title="Industry Talks" />} />
+            <Route path="/trends" element={<PlaceholderPage title="数字趋势 & AI" />} />
+            <Route path="/talks" element={<PlaceholderPage title="行业杂谈" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
