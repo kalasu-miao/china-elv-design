@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: '/china-elv-design/',   // ⭐⭐ GitHub Pages 必须配置  
       server: {
         port: 3000,
         host: '0.0.0.0',
