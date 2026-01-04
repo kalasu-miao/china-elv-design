@@ -15,6 +15,8 @@ export interface Standard {
   category: Category;
   expertTip: string; // The "One Sentence Core Value"
   year: string;
+  pdfUrl?: string; // URL for the PDF file (Blob URL or remote)
+  fileName?: string; // Name of the uploaded file
 }
 
 export interface ReviewCase {
