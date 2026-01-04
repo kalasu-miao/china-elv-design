@@ -57,29 +57,41 @@ export const TOP_ERRORS: ReviewCase[] = [
   {
     id: 'e1',
     title: '弱电井尺寸不足',
-    type: 'Common Error',
+    type: 'System Issue',
+    category: Category.IT,
     description: '建筑师通常为弱电井维护通道预留的深度不足（小于600mm）。',
     frequency: 92
   },
   {
     id: 'e2',
     title: '摄像头盲区',
-    type: 'Common Error',
+    type: 'System Issue',
+    category: Category.SA,
     description: '未能考虑到地下停车场监控设计中柱子的遮挡。',
     frequency: 85
   },
   {
     id: 'e3',
     title: 'DDC箱位置不当',
-    type: 'Common Error',
+    type: 'System Issue',
+    category: Category.BA,
     description: '将BA DDC箱放置在湿度/振动大的AHU机房内，而不是门外。',
     frequency: 78
   },
   {
     id: 'e4',
     title: '楼梯间Wi-Fi覆盖',
-    type: 'Controversy',
+    type: 'Difficult Problem',
+    category: Category.IT,
     description: '是否在消防疏散楼梯间覆盖无线AP以供移动巡检终端使用。',
     frequency: 45
+  },
+  {
+    id: 'e5',
+    title: '机房静电地板高度',
+    type: 'System Issue',
+    category: Category.EE,
+    description: '由于暖通风管下翻，导致地板下送风空间不足400mm，影响散热。',
+    frequency: 60
   }
 ];

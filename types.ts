@@ -5,7 +5,10 @@ export enum Category {
   IA = '信息化应用系统',
   BA = '建筑设备管理系统',
   SA = '公共安全系统',
-  EE = '机房工程'
+  EE = '机房工程',
+  SI = '系统集成',
+  LPG = '防雷接地',
+  PIPE = '综合管路'
 }
 
 export interface Standard {
@@ -22,7 +25,8 @@ export interface Standard {
 export interface ReviewCase {
   id: string;
   title: string;
-  type: 'Common Error' | 'Controversy' | 'Case Study';
+  type: 'System Issue' | 'Difficult Problem' | 'Case Study'; // Updated types
+  category?: Category; // Added category to link with system types
   description: string;
   frequency?: number; // For "Top 100 errors" visualization
 }
