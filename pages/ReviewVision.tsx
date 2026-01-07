@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TOP_ERRORS } from '../constants';
-import { AlertCircle, HelpCircle, CheckCircle2, Layers, Plus, Trash2 } from 'lucide-react';
+import { AlertCircle, HelpCircle, CheckCircle2, Layers, Plus, Trash2, ArrowRight } from 'lucide-react';
 import { Category, ReviewCase } from '../types';
 import AddReviewModal from '../components/AddReviewModal';
 
@@ -28,6 +28,33 @@ const ReviewVision: React.FC = () => {
 
   // Filter for Difficult Problems
   const difficultProblems = reviews.filter(r => r.type === 'Difficult Problem');
+
+  // Helper component for structured content
+  const StructuredContent = ({ review }: { review: ReviewCase }) => (
+    <div className="mt-3 space-y-3">
+      <div className="text-sm">
+        <span className="font-bold text-slate-700 block mb-1">问题 (Issue):</span>
+        <p className="text-slate-600 leading-relaxed bg-red-50/50 p-2 rounded border border-red-100 text-sm">{review.problem}</p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="text-sm">
+           <span className="font-bold text-slate-700 block mb-1">原因 (Cause):</span>
+           <p className="text-slate-500 text-xs leading-relaxed">{review.cause}</p>
+        </div>
+        <div className="text-sm">
+           <span className="font-bold text-green-700 block mb-1">改进 (Solution):</span>
+           <p className="text-slate-700 text-sm font-medium leading-relaxed bg-green-50 p-2 rounded border border-green-100">{review.solution}</p>
+        </div>
+      </div>
+      
+      {review.remark && (
+         <div className="text-xs text-slate-400 mt-2 italic border-t border-slate-100 pt-2">
+            备注: {review.remark}
+         </div>
+      )}
+    </div>
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -84,22 +111,24 @@ const ReviewVision: React.FC = () => {
                   <div key={item.id} className="group bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4 hover:shadow-md transition relative">
                     <button 
                       onClick={() => handleDeleteReview(item.id)}
-                      className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-md transition opacity-0 group-hover:opacity-100"
+                      className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-md transition opacity-0 group-hover:opacity-100 z-10"
                     >
                       <Trash2 size={16} />
                     </button>
                     <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-sm mt-1">
                       {idx + 1}
                     </div>
-                    <div>
+                    <div className="flex-grow">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-xs font-medium px-2 py-0.5 bg-slate-100 rounded text-slate-500">{item.category}</span>
                         <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
                       </div>
-                      <p className="mt-1 text-slate-600 leading-relaxed">{item.description}</p>
+                      
+                      <StructuredContent review={item} />
+
                       {item.frequency && (
-                        <div className="mt-3 flex gap-2">
-                          <span className="text-xs font-medium text-slate-400">避坑指数: {item.frequency}%</span>
+                        <div className="mt-4 flex gap-2">
+                          <span className="text-xs font-medium text-slate-400 bg-slate-50 px-2 py-1 rounded">避坑指数: {item.frequency}%</span>
                         </div>
                       )}
                     </div>
@@ -123,17 +152,19 @@ const ReviewVision: React.FC = () => {
                 <div key={item.id} className="group bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative hover:shadow-md transition">
                    <button 
                       onClick={() => handleDeleteReview(item.id)}
-                      className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-md transition opacity-0 group-hover:opacity-100"
+                      className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-md transition opacity-0 group-hover:opacity-100 z-10"
                     >
                       <Trash2 size={16} />
                     </button>
                   <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-slate-600">{item.description}</p>
-                  <div className="mt-4 p-4 bg-amber-50 rounded-lg text-sm text-amber-800 flex gap-2 items-start">
+                  
+                  <StructuredContent review={item} />
+                  
+                  <div className="mt-4 p-3 bg-amber-50 rounded-lg text-sm text-amber-800 flex gap-2 items-start">
                     <AlertCircle size={16} className="mt-0.5 flex-shrink-0" />
                     <div>
                       <strong>专家建议：</strong> 
-                      此问题通常属于规范盲区。建议根据项目具体定位（甲级/乙级）及甲方运维需求书（OPR）进行专项论证。
+                      此问题通常属于规范盲区，需根据项目具体情况进行专项论证。
                     </div>
                   </div>
                 </div>

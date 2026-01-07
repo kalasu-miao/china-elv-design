@@ -27,7 +27,11 @@ export interface ReviewCase {
   title: string;
   type: 'System Issue' | 'Difficult Problem' | 'Case Study'; // Updated types
   category?: Category; // Added category to link with system types
-  description: string;
+  // Split description into structured data
+  problem: string;   // 具体问题描述
+  cause: string;     // 产生原因
+  solution: string;  // 改进/对策
+  remark?: string;   // 备注 (Optional)
   frequency?: number; // For "Top 100 errors" visualization
 }
 

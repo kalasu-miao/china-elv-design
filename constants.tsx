@@ -59,7 +59,10 @@ export const TOP_ERRORS: ReviewCase[] = [
     title: '弱电井尺寸不足',
     type: 'System Issue',
     category: Category.IT,
-    description: '建筑师通常为弱电井维护通道预留的深度不足（小于600mm）。',
+    problem: '弱电井检修空间过于狭窄，不满足规范要求的最小维护距离。',
+    cause: '建筑专业在方案阶段未充分预留设备安装及人行通道空间（通常小于600mm）。',
+    solution: '确保弱电井柜前维护距离≥800mm，对于深井建议预留≥1000mm。建议在扩初阶段介入核算。',
+    remark: '参考 GB 50311-2016 第6.0.3条',
     frequency: 92
   },
   {
@@ -67,7 +70,9 @@ export const TOP_ERRORS: ReviewCase[] = [
     title: '摄像头盲区',
     type: 'System Issue',
     category: Category.SA,
-    description: '未能考虑到地下停车场监控设计中柱子的遮挡。',
+    problem: '地下停车场行车道监控画面被结构柱或风管遮挡。',
+    cause: '平面设计时未叠加结构柱网图和暖通管线图，仅在建筑底图上布点。',
+    solution: '进行BIM视域分析或在图纸上通过简单的视线连线检查。避开宽扁梁和大型风管。',
     frequency: 85
   },
   {
@@ -75,7 +80,10 @@ export const TOP_ERRORS: ReviewCase[] = [
     title: 'DDC箱位置不当',
     type: 'System Issue',
     category: Category.BA,
-    description: '将BA DDC箱放置在湿度/振动大的AHU机房内，而不是门外。',
+    problem: '将BA DDC控制箱直接安装在潮湿、振动大的空调机房（AHU）内部。',
+    cause: '为了节省线缆长度，忽视了电子元器件的工作环境要求。',
+    solution: 'DDC箱应设置在机房外的公共走道或专用弱电间内。如必须在机房内，需选用IP55以上防护等级箱体并做减震处理。',
+    remark: '机房内环境恶劣会导致控制器寿命缩短50%以上。',
     frequency: 78
   },
   {
@@ -83,7 +91,10 @@ export const TOP_ERRORS: ReviewCase[] = [
     title: '楼梯间Wi-Fi覆盖',
     type: 'Difficult Problem',
     category: Category.IT,
-    description: '是否在消防疏散楼梯间覆盖无线AP以供移动巡检终端使用。',
+    problem: '是否需要在封闭的消防疏散楼梯间内设置无线AP？',
+    cause: '规范无强制要求，且楼梯间墙体信号屏蔽严重，传统设计常忽略。',
+    solution: '随着移动运维终端的普及，建议在核心筒楼梯间每隔3-4层设置一个AP，以保证巡检人员手持终端不掉线。',
+    remark: '属于灰色地带，需与业主确认OPR需求。',
     frequency: 45
   },
   {
@@ -91,7 +102,9 @@ export const TOP_ERRORS: ReviewCase[] = [
     title: '机房静电地板高度',
     type: 'System Issue',
     category: Category.EE,
-    description: '由于暖通风管下翻，导致地板下送风空间不足400mm，影响散热。',
+    problem: '机房精密空调采用下送风，但地板架空高度不足，导致风量不均或设备报警。',
+    cause: '装修层高限制，或未扣除楼板大梁、暖通下翻风管占用的净空。',
+    solution: '下送风机房架空地板净空高度不应小于400mm。若无法满足，应改为上送风下回风或列间空调方案。',
     frequency: 60
   }
 ];
